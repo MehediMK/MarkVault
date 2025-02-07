@@ -22,11 +22,11 @@ def get_git_repo(git_token: str, repo_name: str):
     return repo
 
 
-def fetch_from_github():
+def fetch_from_github(file_location):
     
     repo = get_git_repo(GITHUB_TOKEN, REPO_NAME)
     
-    files = repo.get_contents("blogs", ref=BRANCH_NAME)
+    files = repo.get_contents(f"{file_location}", ref=BRANCH_NAME)
     
     blogs = []
     for file in files:
@@ -36,7 +36,7 @@ def fetch_from_github():
     return blogs
 
 
-def push_to_github(file_name, content):
+def push_to_github(file_location, file_name, content):
     
     repo = get_git_repo(GITHUB_TOKEN, REPO_NAME)
 
@@ -46,5 +46,5 @@ def push_to_github(file_name, content):
         repo.update_file(file.path, "Updated blog post", content, file.sha)
     except:
         # If file doesn't exist, create a new one
-        repo.create_file(f"blogs/{file_name}", "New blog post created.", content, branch=BRANCH_NAME)
+        repo.create_file(f"{file_location}/{file_name}", "New blog post created.", content, branch=BRANCH_NAME)
         
