@@ -2,15 +2,30 @@
 from github import Github, Auth
 from decouple import config
 
+# git variables here...
+BRANCH_NAME = config("BRANCH_NAME")
+GITHUB_TOKEN = config("GITHUB_TOKEN")    
+REPO_NAME = config("REPO_NAME")
+
+
+def get_git_repo(git_token: str, repo_name: str):
+    """Get a git repository object from github 
+    params::
+        git_token: github token
+        repo_name: repository name
+    """
+    
+    auth = Auth.Token(git_token)
+    git = Github(auth=auth)
+    repo = git.get_user().get_repo(repo_name)
+    
+    return repo
+
 
 def fetch_from_github():
-    BRANCH_NAME = config("BRANCH_NAME")
-    GITHUB_TOKEN = config("GITHUB_TOKEN")    
-    REPO_NAME = config("REPO_NAME")
     
-    auth = Auth.Token(GITHUB_TOKEN)
-    g = Github(auth=auth)
-    repo = g.get_user().get_repo(REPO_NAME)
+    repo = get_git_repo(GITHUB_TOKEN, REPO_NAME)
+    
     files = repo.get_contents("blogs", ref=BRANCH_NAME)
     
     blogs = []
@@ -21,17 +36,15 @@ def fetch_from_github():
     return blogs
 
 
-def push_to_github(file_path):
-    BRANCH_NAME = config("BRANCH_NAME")
-    GITHUB_TOKEN = config("GITHUB_TOKEN")    
-    REPO_NAME = config("REPO_NAME")
+def push_to_github(file_name, content):
     
-    auth = Auth.Token(GITHUB_TOKEN)
-    g = Github(auth=auth)
-    repo = g.get_user().get_repo(REPO_NAME)
+    repo = get_git_repo(GITHUB_TOKEN, REPO_NAME)
 
-    with open(file_path, "r") as file:
-        content = file.read()
-
-    file_name = file_path.split("\\")[-1]
-    repo.create_file(f"blogs/{file_name}", f"Add {file_name}", content, branch=BRANCH_NAME)
+    try:
+        # Check if file exists, if so, update it
+        file = repo.get_contents(f"blogs/{file_name}")
+        repo.update_file(file.path, "Updated blog post", content, file.sha)
+    except:
+        # If file doesn't exist, create a new one
+        repo.create_file(f"blogs/{file_name}", "New blog post created.", content, branch=BRANCH_NAME)
+        
