@@ -2,7 +2,7 @@ from github import Github, Auth
 from django.shortcuts import render, redirect
 
 from .forms import BlogForm
-from .utils import save_to_file
+from .utils import prepare_content_to_save
 from .github_utils import push_to_github, fetch_from_github
 
 
@@ -15,8 +15,8 @@ def create_blog(request):
             format_choice = form.cleaned_data["format_choice"]
 
             # Save to file and push to GitHub
-            file_path = save_to_file(title, content, format_choice)
-            push_to_github(file_path)
+            file_name, content = prepare_content_to_save(title, content, format_choice)
+            push_to_github(file_name, content)
 
             return redirect("blog_list")
     else:
