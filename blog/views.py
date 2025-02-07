@@ -1,9 +1,8 @@
-from github import Github, Auth
 from django.shortcuts import render, redirect
 
 from .forms import BlogForm
-from .utils import prepare_content_to_save
-from .github_utils import push_to_github, fetch_from_github
+from core.utils.utils import prepare_content_to_save
+from core.utils.github_utils import push_to_github, fetch_from_github
 
 
 def create_blog(request):
