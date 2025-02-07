@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog List</title>
+</head>
+<body>
+    <h1>Blogs</h1>
+    <ul>
+        {% for blog in blogs %}
+            <li>
+                <h2>{{ blog.file_name }}</h2>
+                <pre>{{ blog.content }}</pre>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
