@@ -95,6 +95,24 @@ Here are some ways you can contribute to MarkVault:
 - **Testing**: Add unit tests or improve test coverage for critical functionalities.
 - **Refactoring**: Optimize the code for better performance and readability.
 
+## Branch Protection Rules
+
+To ensure a stable and secure codebase, the following branch protection rules are enforced:
+
+### `main` Branch
+- All changes must be submitted via pull requests.
+- At least one review is required before merging.
+- All status checks must pass.
+- Direct pushes and force pushes are not allowed.
+- Branch deletion is prohibited.
+
+### `feature/*` Branches
+- Pull requests are required for merging into `main`.
+- Force pushes are allowed for development flexibility.
+- Developers have write access to their feature branches.
+
+If you encounter issues with these rules, please contact the repository maintainers.
+
 ---
 
 #### **6. Code Style and Standards**
