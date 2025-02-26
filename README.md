@@ -68,7 +68,7 @@ MarkVault is lightweight, intuitive, and customizable, catering to users who wan
 
 ---
 
-### **Contribution Guidelines**
+### [**Contribution Guidelines**](CONTRIBUTING.md)
 MarkVault is open-source and encourages contributions from developers worldwide. You can:
 - Report bugs or request new features by opening issues on GitHub.
 - Contribute code improvements or new features via pull requests.
@@ -80,3 +80,4 @@ MarkVault is open-source and encourages contributions from developers worldwide.
 - **Name**: MarkVault
 - **URL**: [MarkVault](https://github.com/MehediMK/MarkVault.git)
 - **License**: MIT License
+- [**Contribution Guidelines**](CONTRIBUTING.md)

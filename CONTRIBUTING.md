@@ -9,10 +9,10 @@ Before you start contributing:
 - Ensure you have Python and Django installed.
 - Familiarize yourself with Git and GitHub.
 - Clone the repository:
-  ```bash
-  git clone https://github.com/MehediMK/MarkVault.git
-  cd MarkVault
-  ```
+```bash
+git clone https://github.com/MehediMK/MarkVault.git
+cd MarkVault
+```
 
 ---
 
@@ -26,7 +26,19 @@ Before you start contributing:
    ```bash
    pip install -r requirements.txt
    ```
-3. **Run the server** to test the project:
+3. **Change Your configurations in .env file**
+   ```bash
+   copy sample.env .env #windows Command Prompt or PowerShell
+   cp sample.env .env   #linux & macOS Terminal
+   ```
+4. Change those values in `.env` file according to your environment.
+   ```bash
+   SECRET_KEY="you secret key"
+   GITHUB_TOKEN="your_github_token"
+   REPO_NAME="your_repo_name"
+   BRANCH_NAME='branch_name'
+   ```
+5. **Run the server** to test the project:
    ```bash
    python manage.py runserver
    ```
@@ -67,12 +79,17 @@ Follow the steps below to contribute your changes:
    git commit -m "Added preview functionality for blog creation"
    ```
 
-6. **Push Your Changes**:
+6. **Pull from development before push**:
+   ```bash
+   git pull origin main # or your root branch
+   ```
+
+7. **Push Your Changes**:
    ```bash
    git push origin feature/<your-feature-name>
    ```
 
-7. **Open a Pull Request (PR)**:
+8. **Open a Pull Request (PR)**:
    - Go to the original repository: https://github.com/MehediMK/MarkVault.git
    - Click on the "Pull Requests" tab and click "New Pull Request."
    - Select your branch and submit your pull request with a clear description.
@@ -84,7 +101,7 @@ By participating in this project, you agree to uphold the following:
 - Be respectful and kind to others.
 - Provide constructive feedback in code reviews.
 - Ensure your contributions are free from plagiarism or copyright violations.
-
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 ---
 
 #### **5. Areas You Can Contribute**
@@ -94,6 +111,7 @@ Here are some ways you can contribute to MarkVault:
 - **Documentation**: Improve the `README.md` file, add tutorials, or create guides.
 - **Testing**: Add unit tests or improve test coverage for critical functionalities.
 - **Refactoring**: Optimize the code for better performance and readability.
+- [Follow those Issues](https://github.com/MehediMK/MarkVault/issues)
 
 ## Branch Protection Rules
 
