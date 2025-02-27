@@ -1,0 +1,62 @@
+site_name: MarkVault
+site_url: https://github.com/MehediMK/MarkVault/
+site_description: "Live Markdown Editor with GitHub Integration"
+site_author: "Mehedi Khan"
+repo_url: "https://github.com/MehediMK/MarkVault"
+repo_name: "MehediMK/MarkVault"
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+  palette:
+    primary: teal
+    accent: pink
+
+extra:
+  generator: false
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/MehediMK/MarkVault
+    - icon: fontawesome/brands/facebook
+      link: https://facebook.com/mdmmhk
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/mehedikhan-mk/
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started.md
+      - Installation: installation.md
+      - Configuration: configuration.md
+  - Usage:
+      - Writing Blogs: usage.md
+      - FAQs: faq.md
+  - Contributing:
+      - Guidelines: contributing.md
+      - Code of Conduct: code_of_conduct.md
+  - Troubleshooting: troubleshooting.md
+  - Contact: contact.md
+  - License: license.md
+
+markdown_extensions:
+  - toc
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - pymdownx.tasklist
+  - pymdownx.details
+  - pymdownx.tilde
+  - pymdownx.betterem
+  - pymdownx.smartsymbols
+  - pymdownx.critic
+
+copyright: Copyright &copy; 2024 - 2025 MarkVault
