@@ -18,6 +18,10 @@ theme:
     primary: teal
     accent: pink
 
+  analytics:
+    gtag: G-93W0PM42MC
+    anonymize_ip: True
+
 extra:
   generator: false
   version:
