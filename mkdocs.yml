@@ -30,6 +30,9 @@ theme:
 
 extra:
   version: 0.0.1
+  analytics:
+    provider: google
+    gtag: G-93W0PM42MC
   generator: false
   version:
     provider: mike
