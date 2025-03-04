@@ -3,7 +3,7 @@ site_url: https://github.com/MehediMK/MarkVault/
 site_description: "Live Markdown Editor with GitHub Integration"
 site_author: "Mehedi Khan"
 repo_url: "https://github.com/MehediMK/MarkVault"
-repo_name: "MehediMK/MarkVault"
+repo_name: "MarkVault"
 
 theme:
   name: material
@@ -21,8 +21,15 @@ theme:
   analytics:
     gtag: G-93W0PM42MC
     anonymize_ip: True
+  
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
 
 extra:
+  version: 0.0.1
   generator: false
   version:
     provider: mike
@@ -49,6 +56,10 @@ nav:
   - Troubleshooting: troubleshooting.md
   - Contact: contact.md
   - License: license.md
+
+plugins:
+  - search:
+      indexing: 'full'
 
 markdown_extensions:
   - toc
